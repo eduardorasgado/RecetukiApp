@@ -24,9 +24,26 @@ workbox.routing.registerNavigationRoute('/index.html')
 
 // regla de retoque de las request en el cache
 // evitando cacheFirst para no cachear de por vida
-workbox.routing.registerRoute(/^https?:\/\/www.themealdb.com\/api\/.*/, workbox.strategies.staleWhileRevalidate(), 'GET')
+workbox.routing.registerRoute(/^https?:\/\/www.themealdb.com\/api\/.*/,
+	workbox.strategies.staleWhileRevalidate(), 'GET')
+
+// regla para las fuentes: matchea todas las fuentes de google
+// Ojo porque con cache first cacheamos de por vida: SOLO hacerlo con elementos
+// que sabemos no van a cambiar nunca o al menos no en una semana + o -
+workbox.routing.registerRoute(/^https:\/\/fonts.(?:googleapis|gstatic).com\/(.*)/,
+	workbox.strategies.cacheFirst({
+		cacheName: 'google-fonts-cache',
+		plugins: [
+			// cache que va a vencer en 2 dias 
+			new workbox.expiration.Plugin({
+				maxAgeSeconds: 48 * 60 * 60
+			})
+		]
+	}), 'GET')
+
+// ojo: es recomendable que esta regla vaya al final, igual todas las "por defecto"
 // regex
-// s opcional
+// s del https es opcional
 //cualquier ruta que empieza con http o https va a cargar networkFirst
 // para toda peticion GET
 // con ello podemos precargar todas las tabs que entremos y exploremos detro de la aplicacion
