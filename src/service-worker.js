@@ -6,8 +6,10 @@ Recordar siempre iniciar el server testing con
 npm run build && npm start
 y no con dev porque podemos romper muchas cosas que no podremos debuggear facilmente
 
-Dato:
+Datos:
 El orden de las reglas importa muchisimo
+
+Service Workets solo va a funcionar con una coneccion tipo https en produccion
 
 */
 // custom service worker para precargar la app
