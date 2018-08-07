@@ -12,6 +12,9 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 // manejar las urls que no sean el home y en vez de mandara una pagina de no internet
 // workbox busca la pagina cacheada mas apropiada para ser cargada offline
 workbox.routing.registerNavigationRoute('/index.html')
+
+// regla de retoque de las request en el cache
+workbox.routing.registerRoute(/^https?:\/\/www.themealdb.com\/api\/.*/, workbox.strategies.staleWhileRevalidate(), 'GET')
 // regex
 // s opcional
 //cualquier ruta que empieza con http o https va a cargar networkFirst
