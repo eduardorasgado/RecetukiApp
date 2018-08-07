@@ -1,7 +1,14 @@
 /*
+**Importante: este archivo se crea en conjunto con config-overrrides y con la modificacion en
+los scripts del package.json
+
 Recordar siempre iniciar el server testing con 
 npm run build && npm start
 y no con dev porque podemos romper muchas cosas que no podremos debuggear facilmente
+
+Dato:
+El orden de las reglas importa muchisimo
+
 */
 // custom service worker para precargar la app
 self.__precacheManifest = [].concat(self.__precacheManifest || [])
@@ -13,7 +20,10 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 // workbox busca la pagina cacheada mas apropiada para ser cargada offline
 workbox.routing.registerNavigationRoute('/index.html')
 
+// REGLAS:
+
 // regla de retoque de las request en el cache
+// evitando cacheFirst para no cachear de por vida
 workbox.routing.registerRoute(/^https?:\/\/www.themealdb.com\/api\/.*/, workbox.strategies.staleWhileRevalidate(), 'GET')
 // regex
 // s opcional
