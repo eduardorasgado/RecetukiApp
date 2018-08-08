@@ -24,6 +24,10 @@ workbox.routing.registerNavigationRoute('/index.html')
 
 // REGLAS:
 
+// google analytics(seteado en App.js) en offline
+// un feature de workbox muy util
+workbox.googleAnalytics.initialize()
+
 // regla de retoque de las request en el cache
 // evitando cacheFirst para no cachear de por vida
 workbox.routing.registerRoute(/^https?:\/\/www.themealdb.com\/api\/.*/,

@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.2b174f9ada61c3df9547496a4c95225f.js", "https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
+importScripts("/precache-manifest.98b1b92718fee2f9a0653963458cb470.js", "https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 /*
 **Importante: este archivo se crea en conjunto con config-overrrides y con la modificacion en
@@ -8,8 +8,10 @@ Recordar siempre iniciar el server testing con
 npm run build && npm start
 y no con dev porque podemos romper muchas cosas que no podremos debuggear facilmente
 
-Dato:
+Datos:
 El orden de las reglas importa muchisimo
+
+Service Workets solo va a funcionar con una coneccion tipo https en produccion
 
 */
 // custom service worker para precargar la app
@@ -23,6 +25,10 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 workbox.routing.registerNavigationRoute('/index.html')
 
 // REGLAS:
+
+// google analytics(seteado en App.js) en offline
+// un feature de workbox muy util
+workbox.googleAnalytics.initialize()
 
 // regla de retoque de las request en el cache
 // evitando cacheFirst para no cachear de por vida
