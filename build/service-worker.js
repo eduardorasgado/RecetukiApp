@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.98b1b92718fee2f9a0653963458cb470.js", "https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
+importScripts("/precache-manifest.4c399bc3ca900319dc66a84ca0b49937.js", "https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 /*
 **Importante: este archivo se crea en conjunto con config-overrrides y con la modificacion en
@@ -11,7 +11,9 @@ y no con dev porque podemos romper muchas cosas que no podremos debuggear facilm
 Datos:
 El orden de las reglas importa muchisimo
 
-Service Workets solo va a funcionar con una coneccion tipo https en produccion
+Service Workers solo va a funcionar con una coneccion tipo https en produccion
+site de workbox:
+https://developers.google.com/web/tools/workbox/
 
 */
 // custom service worker para precargar la app

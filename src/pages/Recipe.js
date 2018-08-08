@@ -21,6 +21,31 @@ export default class Recipe extends React.Component {
     this.setState({ recipe, isLoading: false })
   }
 
+  // ojo: la web share api solo funciona en https
+  compartir = (event) => {
+    event.preventDefault()
+    // en caso de que el browser no soporta share
+    if(! navigator.share) {
+      alert("No podrás compartir la receta por problemas con tu browser :S")
+      return
+    }
+    // traemos la recipe desde el estado
+    const { recipe } = this.state
+    // ahora para compartir
+    navigator.share({
+      title: `${recipe.name}`,
+      text: 'Recetuki: Receta de cocina',
+      // el location de la pagina gracias a location.href
+      url: document.location.href
+    })
+    .then(() => alert("contenido compartido"))
+    // en caso de error no hacemos nada
+    .catch((e) => {
+      alert(`Ha ocurrido un problema:${e.message}. Inténtalo más tarde :(`)
+      return null
+    })
+  }
+
   render() {
     const { recipe, isLoading } = this.state
 
@@ -44,6 +69,7 @@ export default class Recipe extends React.Component {
           <p>{ recipe.origin }</p>
         </div>
         <div>
+          <a onClick={this.compartir} style={{fontWeight: 800, marginRight: 14}}>Share</a>
         </div>
       </div>
 
