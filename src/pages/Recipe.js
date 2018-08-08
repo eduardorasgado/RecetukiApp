@@ -34,7 +34,7 @@ export default class Recipe extends React.Component {
     // ahora para compartir
     navigator.share({
       title: `${recipe.name}`,
-      text: 'Recetuki: Receta de cocina',
+      text: `Receta de cocina para preparar ${recipe.name}`,
       // el location de la pagina gracias a location.href
       url: document.location.href
     })
