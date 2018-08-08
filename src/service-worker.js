@@ -9,7 +9,9 @@ y no con dev porque podemos romper muchas cosas que no podremos debuggear facilm
 Datos:
 El orden de las reglas importa muchisimo
 
-Service Workets solo va a funcionar con una coneccion tipo https en produccion
+Service Workers solo va a funcionar con una coneccion tipo https en produccion
+site de workbox:
+https://developers.google.com/web/tools/workbox/
 
 */
 // custom service worker para precargar la app
