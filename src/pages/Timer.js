@@ -9,6 +9,28 @@ export default class Timer extends React.Component {
 
   start = async () => {
     // TODO: Chequear permisos
+    if( ! ('Notification' in window) || ! ('serviceWorker' in navigator) ) {
+      return alert('Tu browser no soporta notificaciones')
+    }
+
+    // chequear si tenemos el permiso para la notificacion
+    // usualmente la primera vez que se corre esta en default
+    if ( Notification.permission === 'default' ) {
+      // entonces pedimos el permiso
+      // nos avisara ne cuanto el user clickee y acepte si no no hara nada
+      await Notification.requestPermission()
+    }
+    // no hacer nada en caso de rechazar el permiso
+    if ( Notification.permission === 'blocked' ) {
+      return alert("Has bloqueado las notificationes :(")
+    }
+
+    // solo para parar en caso de denegacion del perimso
+    if ( Notification.permissions !== 'granted' ) {
+      return
+    }
+
+    // en caso de que se haya aceptado el envio de notifications
 
     var timer = this.state.timer
     this.setState({ timeLeft: timer })
