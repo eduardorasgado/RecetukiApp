@@ -11,8 +11,9 @@ Solamente testear con:
 ## Lo visto en el curso en el orden dado:
 Shortcut de la app en google mobile con manifest.json en public\
 Optimización de precarga en red(network first) y de cache(staleWhileRevalidate). Puede verse en config-overrides.js\
-Google analytics Offline con react-ga modificando App.js y service-workers
-Web Share API implementado en recipes.js en pages bajo la funcion compartir
+Google analytics Offline con react-ga modificando App.js y service-workers\
+Web Share API implementado en recipes.js en pages bajo la funcion compartir\
+Trabajando bajo modo offline: Comunicarle al usuario el estado offline(ver en App.js y en componente IfOffline)\
 
 ## Librerías instaladas para el WPA:
 `npm add workbox-webpack-plugin `# OR npm install --save workbox-webpack-plugin\
