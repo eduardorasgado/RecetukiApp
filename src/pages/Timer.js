@@ -26,11 +26,12 @@ export default class Timer extends React.Component {
     }
 
     // solo para parar en caso de denegacion del perimso
-    if ( Notification.permissions !== 'granted' ) {
-      return
+    if ( Notification.permission !== 'granted' ) {
+      return;
     }
 
     // en caso de que se haya aceptado el envio de notifications
+    // Ir a show NOtifications -> ahi esta como mostrar las notificaciones
 
     var timer = this.state.timer
     this.setState({ timeLeft: timer })
@@ -47,6 +48,17 @@ export default class Timer extends React.Component {
 
   showNotification = async () => {
     // TODO: Enviar Notificación
+    // esto solo funciona en android y en modo produccion
+    const registration = await navigator.serviceWorker.getRegistration()
+
+    // ojo el soporte no es parejo entre browsers
+    // asi que hacemos chequeos
+    if ( ! registration ) return alert("No hay un Service Worker :(")
+
+    registration.showNotification(`Listo el Timer!`, {
+      body: 'Ding ding ding',
+      img: '/icon.png'
+    })
   }
 
   handleChange = (e) => {
