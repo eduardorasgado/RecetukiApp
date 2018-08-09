@@ -4,7 +4,7 @@ Este repositorio contiene todo el contenido del curso a medida que construimos u
 
 [ESte proyecto fue hecho com create-react-app](https://www.npmjs.com/package/create-react-app)
 
-![Captura de Recetuki](./.readme-static/captura1.png)
+![Captura de Recetuki](./.readme-static/captura1.png | width=300)
 
 ## Como correr el proyecto
 `npm install` para instalar las dependencias\
