@@ -2,7 +2,7 @@
 
 Este repositorio contiene todo el contenido del curso a medida que construimos una app para ver recetas con la API de MealDB.
 
-[ESte proyecto fue hecho com create-react-app](https://www.npmjs.com/package/create-react-app)
+[Este proyecto fue hecho con create-react-app](https://www.npmjs.com/package/create-react-app)
 
 ![Captura de Recetuki](./.readme-static/captura1.png)
 
