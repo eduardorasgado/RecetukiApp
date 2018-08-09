@@ -8,6 +8,10 @@ export default class Timer extends React.Component {
   }
 
   start = async () => {
+    /*
+    Nota:
+    No se trata de push notifications, estas notificaciones requieren tener el browser abierto.
+    */
     // TODO: Chequear permisos
     if( ! ('Notification' in window) || ! ('serviceWorker' in navigator) ) {
       return alert('Tu browser no soporta notificaciones')

@@ -14,7 +14,9 @@ Optimización de precarga en red(network first) y de cache(staleWhileRevalidate)
 Google analytics Offline con react-ga modificando App.js y service-workers\
 Web Share API implementado en recipes.js en pages bajo la funcion compartir\
 Trabajando bajo modo offline: Comunicarle al usuario el estado offline(ver en App.js y en componente IfOffline)\
-Notificaciones: Ver la page Timer.js en pages, esta fue importada en App.js
+Notificaciones: Ver la page Timer.js en pages, esta fue importada en App.js\
+Nota:\
+No se trata de push notifications, estas notificaciones requieren tener el browser abierto.
 
 ## Librerías instaladas para el WPA:
 `npm add workbox-webpack-plugin `# OR npm install --save workbox-webpack-plugin\
