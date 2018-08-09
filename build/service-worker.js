@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.d44d6a6c5d4ab9f21993ce3f5d30585f.js", "https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
+importScripts("/precache-manifest.600300c46abcb82c1bba86512dfa9301.js", "https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 /*
 **Importante: este archivo se crea en conjunto con config-overrrides y con la modificacion en

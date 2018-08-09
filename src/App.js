@@ -4,6 +4,8 @@ import { Router, Route, Link } from "react-router-dom"
 import Home from './pages/Home'
 import Recipe from './pages/Recipe'
 import Timer from './pages/Timer'
+// componente para notificar cuando se esta offline
+import  IfOffline from './components/IfOffline'
 import './App.css'
 
 // google analytics offline
@@ -35,7 +37,7 @@ export default class App extends React.Component {
       <Router history={ history }>
         <div>
           <header>
-            <Link to="/">Recetuki</Link>
+            <Link to="/">Recetuki <IfOffline>Offline</IfOffline></Link>
           </header>
 
           <main>
